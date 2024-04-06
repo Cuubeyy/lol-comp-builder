@@ -1,6 +1,7 @@
 import os
 import requests
 import json
+import networkx as nx
 
 
 class MatchData:
@@ -17,7 +18,7 @@ class MatchData:
 
     def parse_champion_data(self):
         for player in self.data["info"]["participants"]:
-            self.participants.append(player["championName"])
+            self.participants.append((player["championName"], player["championId"]))
 
     def print_data(self):
         print(self.data)
